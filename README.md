@@ -101,44 +101,10 @@ git remote add origin https://github.com/<your-username>/<your-repo>.git
 git push -u origin main
 ```
 
-## Delete scanned.png from the repo
-Choose one of the following:
-
-- Remove from repo and disk:
-```bash
-git rm scanned.png
-git commit -m "Remove scanned.png"
-git push
-```
-
-- Remove from repo but keep the local file:
-```bash
-git rm --cached scanned.png
-git commit -m "Untrack scanned.png"
-git push
-```
-
-To prevent re-adding it, add to .gitignore:
-```gitignore
-scanned.png
-scanned_page.png
-scanned_page_bw.png
-*.png
-```
-Then stage and push:
-```bash
-git add .gitignore
-git commit -m "Ignore scanned images"
-git push
-```
-
 ## Troubleshooting
 - No page detected: improve lighting, ensure high page contrast, increase process_width, or place a darker background under the page. 
 - OCR poor quality: use scanned_page_bw.png, ensure 300+ DPI equivalent, adjust thresholding or try adaptive methods in scan.py. 
 - CUDA/GPU issues: TensorFlow defaults to CPU if no compatible GPU; confirm versions or install CPU-only builds if needed. 
-
-## License
-Add your preferred license (e.g., MIT) as LICENSE in the repo and reference it here. 
 
 ## Acknowledgments
 - OpenCV for vision; Tesseract for OCR; Keras/TensorFlow for sequence modeling.
